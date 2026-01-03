@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destek - Müşterilerim</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e4e4e7;
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            border-radius: 20px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #a1a1aa;
+            font-size: 1rem;
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #f4f4f5;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: "";
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            border-radius: 2px;
+        }
+
+        p {
+            color: #a1a1aa;
+            margin-bottom: 16px;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(99, 102, 241, 0.1));
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 20px;
+        }
+
+        .contact-card h3 {
+            font-size: 1.3rem;
+            color: #f4f4f5;
+            margin-bottom: 8px;
+        }
+
+        .contact-card p {
+            margin-bottom: 20px;
+        }
+
+        .email-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+        }
+
+        .email-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.4);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .faq-item:first-child {
+            padding-top: 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: #f4f4f5;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .faq-question::before {
+            content: "Q";
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .faq-answer {
+            color: #a1a1aa;
+            padding-left: 34px;
+        }
+
+        .response-time {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 12px;
+            padding: 16px 24px;
+            margin-top: 20px;
+        }
+
+        .response-time span {
+            color: #22c55e;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(139, 92, 246, 0.2);
+            margin-top: 40px;
+        }
+
+        footer p {
+            color: #71717a;
+            font-size: 0.875rem;
+        }
+
+        footer a {
+            color: #8b5cf6;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            .contact-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">👥</div>
+            <h1>Destek Merkezi</h1>
+            <p class="subtitle">Müşterilerim - Akıllı Cari Takip Uygulaması</p>
+        </header>
+
+        <div class="contact-card">
+            <div class="contact-icon">📧</div>
+            <h3>Bize Ulaşın</h3>
+            <p>Sorularınız, önerileriniz veya teknik destek talepleriniz için bizimle iletişime geçin.</p>
+            <a href="mailto:ozkanligokhan@gmail.com?subject=Müşterilerim%20Uygulama%20Desteği" class="email-btn">
+                📩 E-posta Gönder
+            </a>
+            <div class="response-time">
+                <span>⚡ Genellikle 24 saat içinde yanıt veriyoruz</span>
+            </div>
+        </div>
+
+        <section>
+            <h2>Sık Sorulan Sorular</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">Verilerim nerede saklanıyor?</div>
+                <p class="faq-answer">Tüm verileriniz yalnızca cihazınızda (yerel SQLite veritabanında) saklanır.
+                    Verileriniz hiçbir sunucuya gönderilmez ve tamamen sizin kontrolünüzdedir.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Uygulamayı silersem verilerim ne olur?</div>
+                <p class="faq-answer">Uygulamayı sildiğinizde, cihazınızda saklanan tüm veriler kalıcı olarak silinir.
+                    Önemli verilerinizi silmeden önce yedeklemenizi öneririz.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">WhatsApp mesaj gönderme özelliği nasıl çalışır?</div>
+                <p class="faq-answer">Uygulama, seçtiğiniz müşterilere özelleştirilmiş mesajlar hazırlayarak WhatsApp
+                    uygulamasını açar. Mesajı göndermek için her müşteri için WhatsApp'ta "Gönder" butonuna basmanız
+                    gerekir.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Akıllı Asistan ne tür analizler yapıyor?</div>
+                <p class="faq-answer">Akıllı Asistan, müşteri davranışlarını analiz ederek ödeme alışkanlıklarını, risk
+                    durumlarını ve satış fırsatlarını değerlendirir. Bu analizler tamamen cihazınızda yapılır.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Döviz kurları ve hava durumu verileri nereden geliyor?</div>
+                <p class="faq-answer">Döviz kurları Frankfurter API'den, hava durumu verileri Open-Meteo API'den alınır.
+                    Bu hizmetler ücretsizdir ve kişisel bilgi gerektirmez.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Müşteri kartını PDF olarak nasıl paylaşırım?</div>
+                <p class="faq-answer">Müşteri detay sayfasında "Cari Kartı Paylaş" butonuna tıklayarak müşteri
+                    bilgilerini profesyonel bir PDF formatında oluşturabilir ve paylaşabilirsiniz.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Teknik Destek</h2>
+            <p>Uygulama ile ilgili teknik bir sorun yaşıyorsanız, lütfen aşağıdaki bilgileri e-postanıza ekleyin:</p>
+            <ul style="color: #a1a1aa; padding-left: 24px; margin-top: 12px;">
+                <li>Kullandığınız cihaz modeli (örn: iPhone 15 Pro)</li>
+                <li>iOS sürümü (örn: iOS 17.2)</li>
+                <li>Uygulama sürümü (Ayarlar bölümünden görebilirsiniz)</li>
+                <li>Sorunun detaylı açıklaması</li>
+                <li>Varsa hata ekran görüntüsü</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Geri Bildirim</h2>
+            <p>Uygulamamızı daha iyi hale getirmek için görüşlerinizi bekliyoruz! Yeni özellik önerilerinizi veya
+                iyileştirme fikirlerinizi bizimle paylaşabilirsiniz.</p>
+            <p>App Store'da yorum bırakarak da bize destek olabilirsiniz. ⭐</p>
+        </section>
+
+        <footer>
+            <div class="footer-links">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="privacy-policy.html">Gizlilik Politikası</a>
+                <a href="mailto:ozkanligokhan@gmail.com">İletişim</a>
+            </div>
+            <p>© 2026 Müşterilerim. Tüm hakları saklıdır.</p>
+            <p style="margin-top: 8px;">Geliştirici: <a href="mailto:ozkanligokhan@gmail.com">Gökhan Özkanlı</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>
