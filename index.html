@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Müşterilerim - Akıllı Cari Takip Uygulaması</title>
+    <meta name="description"
+        content="Müşterilerim ile cari hesaplarınızı kolayca takip edin. Yapay zeka destekli analizler, toplu WhatsApp mesajları ve daha fazlası.">
+    <meta name="keywords" content="cari takip, müşteri yönetimi, ödeme takibi, yapay zeka, WhatsApp">
+    <meta property="og:title" content="Müşterilerim - Akıllı Cari Takip Uygulaması">
+    <meta property="og:description"
+        content="Küçük işletmeler için tasarlanmış, yapay zeka destekli müşteri ve cari hesap takip uygulaması.">
+    <meta property="og:type" content="website">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e4e4e7;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .logo-container {
+            margin-bottom: 30px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 50%, #4f46e5 100%);
+            border-radius: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: #a1a1aa;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .app-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #ffffff;
+            color: #000000;
+            padding: 14px 32px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .app-store-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .app-store-btn svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 36px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(139, 92, 246, 0.3);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(99, 102, 241, 0.2));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #f4f4f5;
+        }
+
+        .feature-card p {
+            color: #a1a1aa;
+            line-height: 1.6;
+        }
+
+        /* Screenshot Section */
+        .screenshots {
+            padding: 80px 20px;
+            background: linear-gradient(180deg, transparent, rgba(139, 92, 246, 0.05), transparent);
+        }
+
+        .screenshots-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .phone-mockup {
+            width: 250px;
+            height: 500px;
+            background: linear-gradient(135deg, #1e1e2e 0%, #2a2a3d 100%);
+            border-radius: 40px;
+            padding: 12px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            border: 3px solid #3a3a4d;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #0f0f23, #1a1a2e);
+            border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .phone-screen .icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .phone-screen h4 {
+            color: #e4e4e7;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .phone-screen p {
+            color: #71717a;
+            font-size: 0.8rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            color: #a1a1aa;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #a1a1aa;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #8b5cf6;
+        }
+
+        .copyright {
+            color: #71717a;
+            font-size: 0.875rem;
+        }
+
+        .copyright a {
+            color: #8b5cf6;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .phone-mockup {
+                width: 200px;
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="logo-container">
+            <div class="logo">👥</div>
+        </div>
+        <h1>Müşterilerim</h1>
+        <p class="tagline">Akıllı Cari Takip Uygulaması ile işinizi kolaylaştırın</p>
+        <a href="https://apps.apple.com/app/id6757331030" class="app-store-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                    d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+            </svg>
+            App Store'da İndir
+        </a>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">Özellikler</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <h3>Yapay Zeka Destekli Analizler</h3>
+                <p>Müşteri davranışlarını analiz edin, satış fırsatlarını keşfedin ve risk raporlarını inceleyin.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3>Toplu WhatsApp Mesajları</h3>
+                <p>Seçili müşterilerinize özelleştirilmiş mesajlar gönderin, tahsilat hatırlatmaları yapın.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Kapsamlı Dashboard</h3>
+                <p>Toplam alacak, borç ve bakiye durumunuzu tek bakışta görün. Döviz kurları ve hava durumu.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Cari Kartı Paylaşımı</h3>
+                <p>Müşteri bilgilerini profesyonel PDF formatında oluşturun ve kolayca paylaşın.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Güvenli Veri Saklama</h3>
+                <p>Tüm verileriniz cihazınızda kalır. Buluta gönderilmez, şifreli olarak saklanır.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Hızlı ve Kolay Kullanım</h3>
+                <p>Modern arayüz ile müşteri ekleme, işlem kaydetme ve raporlama saniyeler içinde.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="screenshots">
+        <h2 class="section-title">Uygulama Önizleme</h2>
+        <div class="screenshots-container">
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <span class="icon">📊</span>
+                    <h4>Dashboard</h4>
+                    <p>Genel bakış ve özet bilgiler</p>
+                </div>
+            </div>
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <span class="icon">👥</span>
+                    <h4>Müşteriler</h4>
+                    <p>Müşteri listesi ve detayları</p>
+                </div>
+            </div>
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <span class="icon">🧠</span>
+                    <h4>Akıllı Asistan</h4>
+                    <p>AI destekli analizler</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>%100</h3>
+                <p>Veri Güvenliği</p>
+            </div>
+            <div class="stat-item">
+                <h3>0</h3>
+                <p>Reklam</p>
+            </div>
+            <div class="stat-item">
+                <h3>∞</h3>
+                <p>Müşteri Limiti</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Erişilebilirlik</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="privacy-policy.html">Gizlilik Politikası</a>
+            <a href="mailto:ozkanligokhan@gmail.com">İletişim</a>
+            <a href="https://apps.apple.com/app/id6757331030">App Store</a>
+        </div>
+        <p class="copyright">
+            © 2026 Müşterilerim. Tüm hakları saklıdır.<br>
+            Geliştirici: <a href="mailto:ozkanligokhan@gmail.com">Gökhan Özkanlı</a>
+        </p>
+    </footer>
+</body>
+
+</html>
